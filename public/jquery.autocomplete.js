@@ -616,8 +616,9 @@ $.Autocompleter.Select = function (options, input, select, config) {
 		}).click(function(event) {
 			$(target(event)).addClass(CLASSES.ACTIVE);
 			select();
+			var text = $(target(event)).text();
 			// TODO provide option to avoid setting focus again after selection? useful for cleanup-on-focus
-			window.location.href= options.formatUrl();  
+			window.location.href= options.formatUrl(text);  
 			input.focus();
 			return false;
 		}).mousedown(function() {
